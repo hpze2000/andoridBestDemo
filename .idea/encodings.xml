@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/activity/BaseActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/activity/MainActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/api/ExpertApi.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/bean/Bean.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/bean/ParamName.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/bean/RequestBean.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/utils/Config.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/utils/GsonUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/utils/OkHttpUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/utils/RetrofitUtils.java" charset="UTF-8" />
+  </component>
+</project>
