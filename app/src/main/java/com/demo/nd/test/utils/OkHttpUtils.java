@@ -2,6 +2,7 @@ package com.demo.nd.test.utils;
 
 import android.content.Context;
 
+import com.demo.nd.test.base.Config;
 import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.OkHttpClient;
 

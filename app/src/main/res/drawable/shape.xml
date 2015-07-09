@@ -3,8 +3,8 @@
  <!-- 实心  透明色
  <solid android:color="#FFFFFF"/>
  -->
-     <gradient android:startColor="#F0F0F0"  
-        android:endColor="#F0F0F0"  
+     <gradient android:startColor="#F0F0F0"
+        android:endColor="#F0F0F0"
          android:angle="90" />
      <stroke
          android:width="2dp"

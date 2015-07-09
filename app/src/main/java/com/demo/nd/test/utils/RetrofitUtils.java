@@ -2,6 +2,8 @@ package com.demo.nd.test.utils;
 
 import android.content.Context;
 
+import com.demo.nd.test.base.Config;
+
 import retrofit.RestAdapter;
 import retrofit.client.OkClient;
 import retrofit.converter.GsonConverter;

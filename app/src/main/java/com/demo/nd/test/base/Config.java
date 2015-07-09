@@ -1,4 +1,4 @@
-package com.demo.nd.test.utils;
+package com.demo.nd.test.base;
 
 
 public class Config {

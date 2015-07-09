@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/activity/BaseActivity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/activity/MainActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/activity/adapter/MainListAdapter.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/api/ExpertApi.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/base/BaseActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/base/BaseApplication.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/base/BaseFragment.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/base/BaseListAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/base/Config.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/base/VisibilityControl.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/bean/Bean.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/bean/ParamName.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/bean/RequestBean.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/utils/Config.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/ui/dialog/CommonDialog.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/ui/dialog/DialogAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/ui/dialog/DialogControl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/ui/dialog/DialogHelper.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/ui/dialog/DialogTitleView.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/ui/dialog/WaitDialog.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/utils/DeviceUtils.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/utils/GsonUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/utils/LogUtils.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/utils/OkHttpUtils.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/demo/nd/test/utils/RetrofitUtils.java" charset="UTF-8" />
   </component>
