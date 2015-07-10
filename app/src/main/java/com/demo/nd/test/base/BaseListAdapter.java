@@ -87,7 +87,7 @@ public class BaseListAdapter<T> extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int arg0) {
+    public T getItem(int arg0) {
         if (_data.size() > arg0) {
             return _data.get(arg0);
         }
