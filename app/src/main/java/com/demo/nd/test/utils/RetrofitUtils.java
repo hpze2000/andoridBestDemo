@@ -12,12 +12,12 @@ public class RetrofitUtils {
 
     private static RestAdapter singleton;
 
-    public static <T> T createApi(Context context, Class<T> clazz) {
+    public static <T> T createApi(Context context, Class<T> clazz, String endPoint) {
         if (singleton == null) {
             synchronized (RetrofitUtils.class) {
                 if (singleton == null) {
                     RestAdapter.Builder builder = new RestAdapter.Builder();
-                    builder.setEndpoint(Config.ENDPOINT);
+                    builder.setEndpoint(endPoint);
                     builder.setConverter(new GsonConverter(GsonUtils.newInstance()));
                     builder.setClient(new OkClient(OkHttpUtils.getInstance(context)));
                     builder.setLogLevel(

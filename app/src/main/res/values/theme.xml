@@ -4,7 +4,7 @@
     <style name="AppBaseTheme_Light" parent="@style/Theme.AppCompat.Light">
         <item name="colorPrimary">@color/day_colorPrimary</item>
         <item name="colorPrimaryDark">@color/day_colorPrimaryDark</item>
-        <item name="android:textColorLink">#0b9a27</item>
+        <item name="android:textColorLink">#ff9a3700</item>
         <item name="android:textColorPrimary">@color/white</item>
         <item name="editTextColor">@color/gray</item>
         <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Dark</item>

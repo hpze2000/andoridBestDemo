@@ -5,8 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.demo.nd.test.R;
+import com.demo.nd.test.utils.DeviceUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -158,56 +162,57 @@ public class BaseListAdapter<T> extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-//        if (position == getCount() - 1) {// 最后一条
-//            if (getState() == STATE_LOAD_MORE || getState() == STATE_NO_MORE
-//                    || state == STATE_EMPTY_ITEM
-//                    || getState() == STATE_NETWORK_ERROR) {
-//                LinearLayout loadmore = (LinearLayout) LayoutInflater.from(
-//                        parent.getContext()).inflate(
-//                        R.layout.list_cell_footer, null);
-//                if (!loadMoreHasBg()) {
-//                    loadmore.setBackgroundDrawable(null);
-//                }
-//                ProgressBar progress = (ProgressBar) loadmore
-//                        .findViewById(R.id.progressbar);
-//                TextView text = (TextView) loadmore.findViewById(R.id.text);
-//                switch (getState()) {
-//                    case STATE_LOAD_MORE:
-//                        loadmore.setVisibility(View.VISIBLE);
-//                        progress.setVisibility(View.VISIBLE);
-//                        text.setVisibility(View.VISIBLE);
-//                        text.setText(_loadmoreText);
-//                        break;
-//                    case STATE_NO_MORE:
-//                        loadmore.setVisibility(View.VISIBLE);
-//                        progress.setVisibility(View.GONE);
-//                        text.setVisibility(View.VISIBLE);
-//                        text.setText(_loadFinishText);
-//                        break;
-//                    case STATE_EMPTY_ITEM:
-//                        progress.setVisibility(View.GONE);
-//                        loadmore.setVisibility(View.GONE);
-//                        text.setVisibility(View.GONE);
-//                        break;
-//                    case STATE_NETWORK_ERROR:
-//                        loadmore.setVisibility(View.VISIBLE);
-//                        progress.setVisibility(View.GONE);
-//                        text.setVisibility(View.VISIBLE);
-//                        if (DeviceUtils.hasInternet()) {
-//                            text.setText("对不起,出错了");
-//                        } else {
-//                            text.setText("没有可用的网络");
-//                        }
-//                        break;
-//                    default:
-//                        progress.setVisibility(View.GONE);
-//                        loadmore.setVisibility(View.GONE);
-//                        text.setVisibility(View.GONE);
-//                        break;
-//                }
-//                return loadmore;
-//            }
-//        }
+        if (position == getCount() - 1) {// 最后一条
+            if (getState() == STATE_LOAD_MORE || getState() == STATE_NO_MORE
+                    || state == STATE_EMPTY_ITEM
+                    || getState() == STATE_NETWORK_ERROR) {
+                LinearLayout loadmore = (LinearLayout) LayoutInflater.from(
+                        parent.getContext()).inflate(
+                        R.layout.list_cell_footer, null);
+                if (!loadMoreHasBg()) {
+                    loadmore.setBackgroundDrawable(null);
+                }
+                ProgressBar progress = (ProgressBar) loadmore
+                        .findViewById(R.id.progressbar);
+                TextView text = (TextView) loadmore.findViewById(R.id.text);
+                System.out.println(getState());
+                switch (getState()) {
+                    case STATE_LOAD_MORE:
+                        loadmore.setVisibility(View.VISIBLE);
+                        progress.setVisibility(View.VISIBLE);
+                        text.setVisibility(View.VISIBLE);
+                        text.setText(_loadmoreText);
+                        break;
+                    case STATE_NO_MORE:
+                        loadmore.setVisibility(View.VISIBLE);
+                        progress.setVisibility(View.GONE);
+                        text.setVisibility(View.VISIBLE);
+                        text.setText(_loadFinishText);
+                        break;
+                    case STATE_EMPTY_ITEM:
+                        progress.setVisibility(View.GONE);
+                        loadmore.setVisibility(View.GONE);
+                        text.setVisibility(View.GONE);
+                        break;
+                    case STATE_NETWORK_ERROR:
+                        loadmore.setVisibility(View.VISIBLE);
+                        progress.setVisibility(View.GONE);
+                        text.setVisibility(View.VISIBLE);
+                        if (DeviceUtils.hasInternet()) {
+                            text.setText("对不起,出错了");
+                        } else {
+                            text.setText("没有可用的网络");
+                        }
+                        break;
+                    default:
+                        progress.setVisibility(View.GONE);
+                        loadmore.setVisibility(View.GONE);
+                        text.setVisibility(View.GONE);
+                        break;
+                }
+                return loadmore;
+            }
+        }
         return getRealView(position, convertView, parent);
     }
 

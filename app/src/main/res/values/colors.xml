@@ -40,7 +40,7 @@
     <color name="drawer_menu_item_background_pressed">#ebeceb</color>
     
     <color name="actionbar_item_background_normal">@color/transparent</color>
-    <color name="actionbar_item_background_pressed">#0b751e</color>
+    <color name="actionbar_item_background_pressed">#ff751a02</color>
     
     <color name="ui_dialog_divider">@color/list_divider_color</color>
     <color name="ui_dialog_list_text">#5E5E5E</color>

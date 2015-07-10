@@ -6,12 +6,12 @@ package com.demo.nd.test.bean;
 public class V2exHotBean {
 
     /**
-     * member : {"avatar_normal":"//cdn.v2ex.co/avatar/4801/6f54/21824_normal.png?m=1433874837","id":21824,"username":"cevincheung","avatar_mini":"//cdn.v2ex.co/avatar/4801/6f54/21824_mini.png?m=1433874837","avatar_large":"//cdn.v2ex.co/avatar/4801/6f54/21824_large.png?m=1433874837","tagline":"µ°¶¨µÄcoder"}
+     * member : {"avatar_normal":"//cdn.v2ex.co/avatar/4801/6f54/21824_normal.png?m=1433874837","id":21824,"username":"cevincheung","avatar_mini":"//cdn.v2ex.co/avatar/4801/6f54/21824_mini.png?m=1433874837","avatar_large":"//cdn.v2ex.co/avatar/4801/6f54/21824_large.png?m=1433874837","tagline":"è›‹å®šçš„coder"}
      * content : ![](http://ww4.sinaimg.cn/mw1024/9093b87djw1etvsl09vc7j216o1kwtj6.jpg)
      * id : 204344
      * last_modified : 1436370024
      * node : {"avatar_normal":"//cdn.v2ex.co/navatar/c9f0/f895/8_normal.png?m=1436401308","id":8,"topics":2750,"title":"iPhone","title_alternative":"iPhone","name":"iphone","avatar_mini":"//cdn.v2ex.co/navatar/c9f0/f895/8_mini.png?m=1436401308","avatar_large":"//cdn.v2ex.co/navatar/c9f0/f895/8_large.png?m=1436401308","url":"http://www.v2ex.com/go/iphone"}
-     * title : Æ»¹û³äµçÏßÈÝÒ×¶Ï¡­¡­ËùÒÔÂòÁËÒ»Ö§½º°ô
+     * title : è‹¹æžœå……ç”µçº¿å®¹æ˜“æ–­â€¦â€¦æ‰€ä»¥ä¹°äº†ä¸€æ”¯èƒ¶æ£’
      * created : 1436370024
      * replies : 63
      * last_touched : 1436436606
@@ -126,7 +126,7 @@ public class V2exHotBean {
          * username : cevincheung
          * avatar_mini : //cdn.v2ex.co/avatar/4801/6f54/21824_mini.png?m=1433874837
          * avatar_large : //cdn.v2ex.co/avatar/4801/6f54/21824_large.png?m=1433874837
-         * tagline : µ°¶¨µÄcoder
+         * tagline : è›‹å®šçš„coder
          */
         private String avatar_normal;
         private int id;

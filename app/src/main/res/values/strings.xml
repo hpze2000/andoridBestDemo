@@ -5,4 +5,6 @@
     <string name="loading">加载中...</string>
     <string name="loading_no_more">没有更多了...</string>
     <string name="action_settings">设置</string>
+
+    <string name="exit_tip">退出提示</string>
 </resources>

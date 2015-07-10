@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#e2e2e2" >
+
+    <in.srain.cube.views.ptr.PtrClassicFrameLayout
+            android:id="@+id/fragment_home_ptr_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        <com.demo.nd.test.ui.loadmore.LoadMoreListViewContainer
+            android:id="@+id/load_more_list_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ListView
+                android:id="@+id/fragment_home_menu_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#e2e2e2"
+                android:clipToPadding="false"
+                android:divider="@null"
+                android:dividerHeight="4dp"
+                android:fadingEdge="none"
+                android:fastScrollEnabled="true"
+                android:fitsSystemWindows="true"
+                android:focusable="true"
+                android:listSelector="@android:color/transparent"
+                android:padding="6dp"
+                android:scrollbarStyle="outsideOverlay"
+                android:scrollbars="none" />
+
+        </com.demo.nd.test.ui.loadmore.LoadMoreListViewContainer>
+
+    </in.srain.cube.views.ptr.PtrClassicFrameLayout>
+</LinearLayout>

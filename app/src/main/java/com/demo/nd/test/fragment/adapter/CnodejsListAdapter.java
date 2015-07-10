@@ -1,4 +1,4 @@
-package com.demo.nd.test.activity.adapter;
+package com.demo.nd.test.fragment.adapter;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,12 +7,16 @@ import android.widget.TextView;
 
 import com.demo.nd.test.R;
 import com.demo.nd.test.base.BaseListAdapter;
-import com.demo.nd.test.bean.Bean;
+import com.demo.nd.test.bean.CnodejsTopicsBean;
+import com.squareup.picasso.Picasso;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 
 /**
  * Created by Administrator on 2015/7/9.
  */
-public class MainListAdapter extends BaseListAdapter<Bean.DataEntity.SeriesEntity> {
+public class CnodejsListAdapter extends BaseListAdapter<CnodejsTopicsBean.DataEntity> {
 
     @Override
     protected View getRealView(int position, View convertView, ViewGroup parent) {
@@ -26,11 +30,20 @@ public class MainListAdapter extends BaseListAdapter<Bean.DataEntity.SeriesEntit
             vh = (ViewHolder) convertView.getTag();
         }
 
-        Bean.DataEntity.SeriesEntity str = _data.get(position);
+        CnodejsTopicsBean.DataEntity data = _data.get(position);
 
 
-        vh.infoTitle.setText(str.getName());
-        vh.imageIcon.setImageResource(R.drawable.quick_option_album_nor);
+        vh.infoTitle.setText(data.getTitle());
+
+        try {
+            String url = data.getAuthor().getAvatar_url().replace("/agent?url=", "");
+            url = URLDecoder.decode(url, "utf-8");
+
+            Picasso.with(parent.getContext()).load(url).into(vh.imageIcon);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
 
         return convertView;
     }
