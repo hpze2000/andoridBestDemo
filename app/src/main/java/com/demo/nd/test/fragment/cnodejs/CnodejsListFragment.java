@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.demo.nd.test.R;
-import com.demo.nd.test.fragment.adapter.CnodejsListAdapter;
 import com.demo.nd.test.api.CnodejsApi;
 import com.demo.nd.test.base.BaseFragment;
 import com.demo.nd.test.bean.CnodejsTopicsBean;
+import com.demo.nd.test.fragment.adapter.CnodejsListAdapter;
 import com.demo.nd.test.ui.loadmore.LoadMoreContainer;
 import com.demo.nd.test.ui.loadmore.LoadMoreHandler;
 import com.demo.nd.test.ui.loadmore.LoadMoreListViewContainer;
