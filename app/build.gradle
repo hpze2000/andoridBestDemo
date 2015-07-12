@@ -52,6 +52,7 @@ dependencies {
     compile 'com.github.rey5137:material:1.1.1'
     compile 'in.srain.cube:ultra-ptr:1.0.10'
     compile 'com.joanzapata.android:android-iconify:1.0.9'
+    compile 'com.etsy.android.grid:library:1.0.5'
 //    compile 'com.yalantis:contextmenu:1.0.4'
 
 //    apt "org.androidannotations:androidannotations:$AAVersion"
