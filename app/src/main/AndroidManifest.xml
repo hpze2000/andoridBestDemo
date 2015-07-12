@@ -25,6 +25,8 @@
 
         <activity
             android:name=".activity.SimpleBackActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
             >
         </activity>
     </application>

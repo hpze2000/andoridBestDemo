@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/layout_item_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/space_8">
+
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="@android:dimen/app_icon_size"
+            android:layout_height="@android:dimen/app_icon_size"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/space_8"
+            android:contentDescription="@null"
+            tools:text="头像"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/list_cell_text"
+            android:layout_toRightOf="@id/iv_avatar"
+            android:textColor="?android:textColorLink"
+            tools:text="发布人" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_toRightOf="@id/iv_avatar"
+            android:textColor="@color/main_gray"
+            android:textSize="@dimen/text_size_12"
+            tools:text="发布时间" />
+
+        <TextView
+            android:id="@+id/tv_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_name"
+            android:drawablePadding="@dimen/space_5"
+            android:textColor="@color/main_gray"
+            android:textSize="@dimen/text_size_12"
+            tools:text="类别"/>
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:scrollbars="none" />
+
+
+
+</LinearLayout>

@@ -18,6 +18,7 @@ import com.demo.nd.test.base.BaseActivity;
 public class SimpleBackActivity extends BaseActivity {
     public final static String BUNDLE_KEY_PAGE = "BUNDLE_KEY_PAGE";
     public final static String BUNDLE_KEY_TITLE = "BUNDLE_KEY_TITLE";
+    public final static String BUNDLE_KEY_ARGS = "BUNDLE_KEY_ARGS";
 
     private ActionBar mActionBar;
     protected LayoutInflater mInflater;
@@ -30,6 +31,7 @@ public class SimpleBackActivity extends BaseActivity {
         setContentView(R.layout.activity_simple_fragment);
 
         mActionBar = getSupportActionBar();
+        mActionBar.setDisplayShowHomeEnabled(false);
         mInflater = getLayoutInflater();
         initActionBar(mActionBar);
 
@@ -45,7 +47,7 @@ public class SimpleBackActivity extends BaseActivity {
             try {
                 c = Class.forName(pageValue);
 
-                pushFragmentToBackStack(c, null);
+                pushFragmentToBackStack(c, data.getBundleExtra(BUNDLE_KEY_ARGS));
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }

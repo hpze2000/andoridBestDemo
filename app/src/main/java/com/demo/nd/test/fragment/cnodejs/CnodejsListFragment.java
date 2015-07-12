@@ -1,20 +1,31 @@
 package com.demo.nd.test.fragment.cnodejs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.demo.nd.test.R;
+import com.demo.nd.test.activity.SimpleBackActivity;
 import com.demo.nd.test.api.CnodejsApi;
 import com.demo.nd.test.base.BaseFragment;
+import com.demo.nd.test.base.BaseListAdapter;
+import com.demo.nd.test.bean.Bean;
 import com.demo.nd.test.bean.CnodejsTopicsBean;
 import com.demo.nd.test.fragment.adapter.CnodejsListAdapter;
+import com.demo.nd.test.ui.dialog.CommonDialog;
+import com.demo.nd.test.ui.dialog.DialogHelper;
 import com.demo.nd.test.ui.loadmore.LoadMoreContainer;
 import com.demo.nd.test.ui.loadmore.LoadMoreHandler;
 import com.demo.nd.test.ui.loadmore.LoadMoreListViewContainer;
+import com.demo.nd.test.utils.DeviceUtils;
 
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
@@ -26,7 +37,8 @@ import retrofit.client.Response;
  * Created by Administrator on 2015/7/10.
  */
 public class CnodejsListFragment extends BaseFragment {
-    int currentPage = 1;
+    int G_currentPage = 1;
+    String G_tabStr = "";
 
     CnodejsApi mCnodejsApi;
     CnodejsListAdapter mMainListAdapter;
@@ -50,9 +62,24 @@ public class CnodejsListFragment extends BaseFragment {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                
+                CnodejsTopicsBean.DataEntity data = mMainListAdapter.getItem(position);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("id", data.getId());
+//                bundle.putString("content", data.getContent());
+//                bundle.putString("time", data.getCreate_at());
+//                bundle.putString("name", data.getAuthor().getLoginname());
+//                bundle.putString("title", data.getTitle());
+
+                Intent intent = new Intent(getContext(), SimpleBackActivity.class);
+                intent.putExtra(SimpleBackActivity.BUNDLE_KEY_PAGE, "com.demo.nd.test.fragment.cnodejs.CnodejsPageFragment");
+                intent.putExtra(SimpleBackActivity.BUNDLE_KEY_TITLE, "主题内容");
+                intent.putExtra(SimpleBackActivity.BUNDLE_KEY_ARGS, bundle);
+                startActivity(intent);
             }
         });
+
+        setHasOptionsMenu(true);
 
         return view;
     }
@@ -63,6 +90,38 @@ public class CnodejsListFragment extends BaseFragment {
         mMainListAdapter = new CnodejsListAdapter();
 
         initPtrFrame();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_cnodejs, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_ask:
+                G_tabStr = "ask";
+                break;
+            case R.id.action_good:
+                G_tabStr = "good";
+                break;
+            case R.id.action_job:
+                G_tabStr = "job";
+                break;
+            case R.id.action_share:
+                G_tabStr = "share";
+                break;
+            default:
+                G_tabStr = "";
+                break;
+        }
+
+
+        ptrFrame.autoRefresh();
+
+        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -89,7 +148,7 @@ public class CnodejsListFragment extends BaseFragment {
                 getData(false);
             }
         });
-        loadMoreListViewContainer.loadMoreFinish(false, true);
+
 
         ptrFrame.postDelayed(new Runnable() {
             @Override
@@ -101,16 +160,16 @@ public class CnodejsListFragment extends BaseFragment {
 
     void getData(boolean isFirstPage) {
         if (isFirstPage) {
-            currentPage = 1;
+            G_currentPage = 1;
         }
 
-        mCnodejsApi.topics(currentPage, 20, "", true, new AjaxDataCallback(isFirstPage));
+        mCnodejsApi.topics(G_currentPage, 20, G_tabStr, true, new DataCallback(isFirstPage));
 
-        currentPage++;
+        G_currentPage++;
     }
 
-    private final class AjaxDataCallback extends ActivityCallback<CnodejsTopicsBean> {
-        public AjaxDataCallback(Object obj) {
+    private final class DataCallback extends ActivityCallback<CnodejsTopicsBean> {
+        public DataCallback(Object obj) {
             super(obj);
         }
 
@@ -127,13 +186,15 @@ public class CnodejsListFragment extends BaseFragment {
             } else {
                 mMainListAdapter.addData(requestBean.getData());
                 mMainListAdapter.notifyDataSetChanged();
-                loadMoreListViewContainer.loadMoreFinish(mMainListAdapter.isEmpty(), !mMainListAdapter.isEmpty());
             }
+
+            loadMoreListViewContainer.loadMoreFinish(mMainListAdapter.isEmpty(), !mMainListAdapter.isEmpty());
         }
 
         @Override
         public void failure(RetrofitError error) {
             ptrFrame.refreshComplete();
+            mMainListAdapter.setState(BaseListAdapter.STATE_NETWORK_ERROR);
         }
     }
 

@@ -33,7 +33,7 @@ public abstract class BaseFragment extends Fragment implements IBaseFragment, IC
     }
 
 
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = Config.DEBUG;
     protected Object mDataIn;
     private boolean mFirstResume = true;
 
@@ -202,7 +202,7 @@ public abstract class BaseFragment extends Fragment implements IBaseFragment, IC
 
     private void showStatus(String status) {
         final String[] className = ((Object) this).getClass().getName().split("\\.");
-        LogUtils.log("cube-lifecycle", className[className.length - 1] + " " + status);
+        LogUtils.log("lifecycle", className[className.length - 1] + " " + status);
     }
 }
 

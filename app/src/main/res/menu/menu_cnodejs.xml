@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+    <item android:id="@+id/action_all" android:title="所有主题"
+        app:showAsAction="never" />
+    <item android:id="@+id/action_good" android:title="精华"
+        app:showAsAction="never" />
+    <item android:id="@+id/action_share" android:title="分享"
+        app:showAsAction="never" />
+    <item android:id="@+id/action_ask" android:title="问答"
+        app:showAsAction="never" />
+    <item android:id="@+id/action_job" android:title="招聘"
+        app:showAsAction="never" />
+</menu>

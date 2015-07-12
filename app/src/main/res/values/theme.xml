@@ -7,7 +7,7 @@
         <item name="android:textColorLink">#ff9a3700</item>
         <item name="android:textColorPrimary">@color/white</item>
         <item name="editTextColor">@color/gray</item>
-        <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Dark</item>
+        <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="android:windowBackground">@color/window_background</item>
         <item name="actionMenuTextColor">@color/white</item>
         <item name="textColor">@color/day_textColor</item>

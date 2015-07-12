@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="cube_views_load_more_loading">loading...</string>
-    <string name="cube_views_load_more_click_to_load_more">Click to load more</string>
-    <string name="cube_views_load_more_loaded_no_more">All the data has been loaded</string>
-    <string name="cube_views_load_more_loaded_empty">It is empty. :(</string>
-    <string name="cube_views_load_more_error">Load error, click to retry</string>
+    <string name="cube_views_load_more_loading">正在加载中...</string>
+    <string name="cube_views_load_more_click_to_load_more">点击加载更多...</string>
+    <string name="cube_views_load_more_loaded_no_more">所有数据已经加载完毕</string>
+    <string name="cube_views_load_more_loaded_empty">没有响应数据. :(</string>
+    <string name="cube_views_load_more_error">加载出错了，点击重试！</string>
 </resources>

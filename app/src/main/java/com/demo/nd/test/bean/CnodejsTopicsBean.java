@@ -3,6 +3,7 @@ package com.demo.nd.test.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -217,6 +218,7 @@ public class CnodejsTopicsBean implements Parcelable {
         public boolean isTop() {
             return top;
         }
+
 
         public class AuthorEntity {
             /**

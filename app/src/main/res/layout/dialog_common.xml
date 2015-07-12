@@ -5,7 +5,7 @@
     android:layout_margin="@dimen/dialog_margin"
     android:orientation="vertical" >
 
-    <net.njd.sunsharior.app.ui.dialog.DialogTitleView
+    <com.demo.nd.test.ui.dialog.DialogTitleView
         android:id="@+id/dialog_header"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

@@ -20,7 +20,7 @@ public abstract class BaseFragmentActivity extends AppCompatActivity {
 
     private final static String LOG_TAG = "base-fragment";
 
-    public static boolean DEBUG = true;
+    public static boolean DEBUG = Config.DEBUG;
     protected BaseFragment mCurrentFragment;
     private boolean mCloseWarned;
 

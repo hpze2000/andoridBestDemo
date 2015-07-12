@@ -47,7 +47,7 @@ public abstract class BaseActivity extends BaseFragmentActivity implements IComp
 
     private LifeCycleComponentManager mComponentContainer = new LifeCycleComponentManager();
 
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = Config.DEBUG;
 
     @Override
     protected void onRestart() {
@@ -109,6 +109,6 @@ public abstract class BaseActivity extends BaseFragmentActivity implements IComp
 
     private void showStatus(String status) {
         final String[] className = ((Object) this).getClass().getName().split("\\.");
-        LogUtils.log("cube-lifecycle", String.format("%s %s", className[className.length - 1], status));
+        LogUtils.log("lifecycle", String.format("%s %s", className[className.length - 1], status));
     }
 }
