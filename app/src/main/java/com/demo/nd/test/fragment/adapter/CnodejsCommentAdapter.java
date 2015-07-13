@@ -10,6 +10,7 @@ import com.demo.nd.test.R;
 import com.demo.nd.test.base.BaseListAdapter;
 import com.demo.nd.test.bean.CnodejsTopicBean;
 import com.demo.nd.test.bean.CnodejsTopicsBean;
+import com.demo.nd.test.utils.LogUtils;
 import com.demo.nd.test.utils.StringUtils;
 import com.squareup.picasso.Picasso;
 
@@ -52,7 +53,9 @@ public class CnodejsCommentAdapter extends BaseListAdapter<CnodejsTopicBean.Data
 
             Picasso.with(parent.getContext()).load(url).into(vh.iv_avatar);
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+
+            LogUtils.log(CnodejsCommentAdapter.class.getName(), e.toString());
         }
 
 

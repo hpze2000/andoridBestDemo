@@ -27,11 +27,19 @@
                     android:background="@drawable/pagefailed_bg"
                     android:visibility="gone" />
 
-                <ProgressBar
+                <!--<ProgressBar
                     android:id="@+id/animProgress"
                     android:layout_width="30dip"
                     android:layout_height="30dip"
-                    style="@style/loading" />
+                    style="@style/loading" />-->
+
+                <ProgressBar
+                    android:id="@+id/animProgress"
+                    android:layout_width="79.0dip"
+                    android:layout_height="79.0dip"
+                    android:background="@drawable/loadingpage_bg"
+                    android:indeterminateDrawable="@drawable/animdraw"
+                    android:indeterminateDuration="1500" />
             </RelativeLayout>
 
             <TextView

@@ -532,7 +532,9 @@ public class StringUtils {
             try {
                 currentLength += String.valueOf(c).getBytes(encode).length;
             } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+//                e.printStackTrace();
+
+                LogUtils.log("StringUtils", e.toString());
             }
             if (currentLength <= length) {
                 sb.append(c);
@@ -560,9 +562,10 @@ public class StringUtils {
 
             dateFormat = getDateString(dt);
         }
-        catch(ParseException pe)
+        catch(ParseException e)
         {
-            pe.printStackTrace();
+//            pe.printStackTrace();
+            LogUtils.log("StringUtils", e.toString());
         }
 
         return dateFormat;

@@ -129,7 +129,7 @@ public class CnodejsPageFragment extends BaseFragment {
 
                 Picasso.with(getContext()).load(url).error(R.drawable.page_icon_empty).into(iv_avatar);
             } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+//                e.printStackTrace();
             }
 
             if (requestBean.getData().getReplies() != null) {
@@ -142,7 +142,7 @@ public class CnodejsPageFragment extends BaseFragment {
 
         @Override
         public void failure(RetrofitError error) {
-            mEmptyLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
+//            mEmptyLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
         }
     }
 

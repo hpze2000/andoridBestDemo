@@ -21,6 +21,7 @@ import com.demo.nd.test.fragment.adapter.CnodejsListAdapter;
 import com.demo.nd.test.ui.loadmore.LoadMoreContainer;
 import com.demo.nd.test.ui.loadmore.LoadMoreHandler;
 import com.demo.nd.test.ui.loadmore.LoadMoreListViewContainer;
+import com.demo.nd.test.utils.LogUtils;
 
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
@@ -191,6 +192,8 @@ public class CnodejsListFragment extends BaseFragment {
         public void failure(RetrofitError error) {
             ptrFrame.refreshComplete();
             mCnodejsListAdapter.setState(BaseListAdapter.STATE_NETWORK_ERROR);
+
+            LogUtils.log(CnodejsListFragment.class.getName(), error.toString());
         }
     }
 
