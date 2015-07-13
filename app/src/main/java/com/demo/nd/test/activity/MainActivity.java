@@ -11,7 +11,7 @@ import com.demo.nd.test.base.BaseMintsActivity;
 
 public class MainActivity extends BaseMintsActivity {
 
-    Button btnCnodejsList;
+    Button btnCnodejsList, btnMeizituList;
 
     @Override
     protected void onCreate(Bundle bundle) {
@@ -19,13 +19,24 @@ public class MainActivity extends BaseMintsActivity {
         setContentView(R.layout.activity_main);
 
         btnCnodejsList = (Button) findViewById(R.id.btn_demo_list);
+        btnMeizituList = (Button) findViewById(R.id.btn_demo_meizitu_list);
 
         btnCnodejsList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SimpleBackActivity.class);
                 intent.putExtra(SimpleBackActivity.BUNDLE_KEY_PAGE, "com.demo.nd.test.fragment.cnodejs.CnodejsListFragment");
-                intent.putExtra(SimpleBackActivity.BUNDLE_KEY_TITLE, "cnodejs.com API");
+                intent.putExtra(SimpleBackActivity.BUNDLE_KEY_TITLE, "cnodejs.org API");
+                startActivity(intent);
+            }
+        });
+
+        btnMeizituList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SimpleBackActivity.class);
+                intent.putExtra(SimpleBackActivity.BUNDLE_KEY_PAGE, "com.demo.nd.test.fragment.meizitu.MeizituListFragment");
+                intent.putExtra(SimpleBackActivity.BUNDLE_KEY_TITLE, "meitu.tv API");
                 startActivity(intent);
             }
         });

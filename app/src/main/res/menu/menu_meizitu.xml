@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:nd="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_meizitu_photograph"
+        android:title="拍照"
+        android:visible="true"
+        nd:showAsAction="always" />
+
+</menu>

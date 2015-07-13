@@ -8,7 +8,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -17,15 +16,11 @@ import com.demo.nd.test.activity.SimpleBackActivity;
 import com.demo.nd.test.api.CnodejsApi;
 import com.demo.nd.test.base.BaseFragment;
 import com.demo.nd.test.base.BaseListAdapter;
-import com.demo.nd.test.bean.Bean;
 import com.demo.nd.test.bean.CnodejsTopicsBean;
 import com.demo.nd.test.fragment.adapter.CnodejsListAdapter;
-import com.demo.nd.test.ui.dialog.CommonDialog;
-import com.demo.nd.test.ui.dialog.DialogHelper;
 import com.demo.nd.test.ui.loadmore.LoadMoreContainer;
 import com.demo.nd.test.ui.loadmore.LoadMoreHandler;
 import com.demo.nd.test.ui.loadmore.LoadMoreListViewContainer;
-import com.demo.nd.test.utils.DeviceUtils;
 
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
@@ -41,7 +36,7 @@ public class CnodejsListFragment extends BaseFragment {
     String G_tabStr = "";
 
     CnodejsApi mCnodejsApi;
-    CnodejsListAdapter mMainListAdapter;
+    CnodejsListAdapter mCnodejsListAdapter;
 
     ListView mListView;
     PtrFrameLayout ptrFrame;
@@ -49,8 +44,6 @@ public class CnodejsListFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-
         final View view = inflater.inflate(R.layout.fragment_cnodejs_list, null);
 
         mListView = (ListView) view.findViewById(R.id.fragment_home_menu_list_view);
@@ -62,7 +55,7 @@ public class CnodejsListFragment extends BaseFragment {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                CnodejsTopicsBean.DataEntity data = mMainListAdapter.getItem(position);
+                CnodejsTopicsBean.DataEntity data = mCnodejsListAdapter.getItem(position);
 
                 Bundle bundle = new Bundle();
                 bundle.putString("id", data.getId());
@@ -87,7 +80,7 @@ public class CnodejsListFragment extends BaseFragment {
 
     void init() {
         mCnodejsApi = createApi(CnodejsApi.class, "https://cnodejs.org");
-        mMainListAdapter = new CnodejsListAdapter();
+        mCnodejsListAdapter = new CnodejsListAdapter();
 
         initPtrFrame();
     }
@@ -178,23 +171,26 @@ public class CnodejsListFragment extends BaseFragment {
             boolean isFirstPage = (boolean) mObject;
 
             if (isFirstPage) {
-                mMainListAdapter.clear();
-                mMainListAdapter.addData(requestBean.getData());
-                mListView.setAdapter(mMainListAdapter);
+                mCnodejsListAdapter.clear();
+                mCnodejsListAdapter.addData(requestBean.getData());
+                mListView.setAdapter(mCnodejsListAdapter);
 
                 ptrFrame.refreshComplete();
             } else {
-                mMainListAdapter.addData(requestBean.getData());
-                mMainListAdapter.notifyDataSetChanged();
+                mCnodejsListAdapter.addData(requestBean.getData());
+                mCnodejsListAdapter.notifyDataSetChanged();
             }
 
-            loadMoreListViewContainer.loadMoreFinish(mMainListAdapter.isEmpty(), !mMainListAdapter.isEmpty());
+            loadMoreListViewContainer.loadMoreFinish(
+                    requestBean.getData().isEmpty(),
+                    !requestBean.getData().isEmpty()
+            );
         }
 
         @Override
         public void failure(RetrofitError error) {
             ptrFrame.refreshComplete();
-            mMainListAdapter.setState(BaseListAdapter.STATE_NETWORK_ERROR);
+            mCnodejsListAdapter.setState(BaseListAdapter.STATE_NETWORK_ERROR);
         }
     }
 

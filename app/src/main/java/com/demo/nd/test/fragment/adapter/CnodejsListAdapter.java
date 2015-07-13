@@ -8,16 +8,8 @@ import android.widget.TextView;
 
 import com.demo.nd.test.R;
 import com.demo.nd.test.base.BaseListAdapter;
-import com.demo.nd.test.bean.CnodejsTopicBean;
 import com.demo.nd.test.bean.CnodejsTopicsBean;
 import com.demo.nd.test.utils.StringUtils;
-import com.squareup.picasso.Picasso;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Created by Administrator on 2015/7/9.
@@ -43,10 +35,14 @@ public class CnodejsListAdapter extends BaseListAdapter<CnodejsTopicsBean.DataEn
         if (!TextUtils.isEmpty(dateFormat)) {
             vh.tv_time.setText(StringUtils.friendly_time(dateFormat));
 
-            if (StringUtils.isToday(dateFormat)) {
-                vh.iv_tip.setVisibility(View.VISIBLE);
+            if (data.isTop()) {
+                vh.iv_tip.setImageResource(R.drawable.widget_top_icon);
             } else {
-                vh.iv_tip.setVisibility(View.GONE);
+                if (StringUtils.isToday(dateFormat)) {
+                    vh.iv_tip.setVisibility(View.VISIBLE);
+                } else {
+                    vh.iv_tip.setVisibility(View.GONE);
+                }
             }
         }
 

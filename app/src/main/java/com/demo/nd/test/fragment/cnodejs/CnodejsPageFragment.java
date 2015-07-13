@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -35,7 +34,7 @@ public class CnodejsPageFragment extends BaseFragment {
 
     CnodejsApi mCnodejsApi;
     String id;
-    CnodejsCommentAdapter mCnodejsCommentAdapter = new CnodejsCommentAdapter();
+    CnodejsCommentAdapter mCnodejsCommentAdapter;
 
     EmptyLayout mEmptyLayout;
     WebView mWebView;
@@ -48,8 +47,6 @@ public class CnodejsPageFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-
         final View view = inflater.inflate(R.layout.fragment_cnodejs_page, null);
 
         mEmptyLayout = (EmptyLayout) view.findViewById(R.id.error_layout);
@@ -66,6 +63,7 @@ public class CnodejsPageFragment extends BaseFragment {
         Bundle bundle = (Bundle) mDataIn;
         id = bundle.getString("id");
 
+        mCnodejsCommentAdapter = new CnodejsCommentAdapter();
 
         initListHeader();
 

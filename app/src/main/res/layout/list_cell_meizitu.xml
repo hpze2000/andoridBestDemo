@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/space_5"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:background="@drawable/grid_selector">
+
+    <RelativeLayout
+        android:id="@+id/itemImageLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ProgressBar
+            android:id="@+id/progressBar_PhotoView"
+            style="@style/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="visible"/>
+
+        <com.etsy.android.grid.util.DynamicHeightImageView
+            android:id="@+id/iv_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:gravity="center"
+            tools:text="图片"/>
+
+    </RelativeLayout>
+
+
+    <com.etsy.android.grid.util.DynamicHeightTextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textSize="@dimen/text_large_secondary_size"
+        android:padding="@dimen/space_5"
+        android:textColor="@color/text_dark"
+        tools:text="主题"/>
+
+
+</LinearLayout>

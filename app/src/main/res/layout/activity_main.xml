@@ -6,6 +6,10 @@
     android:padding="10dp">
 
 
+    <com.liangfeizc.flowlayout.FlowLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,5 +18,16 @@
         android:id="@+id/btn_demo_list"
         android:background="#ffff773e" />
 
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/space_5"
+        android:layout_marginTop="@dimen/space_5"
+        android:text="图片瀑布流"
+        android:id="@+id/btn_demo_meizitu_list"
+        android:background="#ffff773e" />
+
+    </com.liangfeizc.flowlayout.FlowLayout>
 
 </LinearLayout>

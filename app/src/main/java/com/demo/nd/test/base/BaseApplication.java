@@ -46,6 +46,7 @@ public class BaseApplication extends Application {
     }
 
     protected void init() {
+
     }
 
     public static synchronized BaseApplication context() {
