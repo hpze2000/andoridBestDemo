@@ -23,6 +23,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 
 import retrofit.RetrofitError;
 import retrofit.mime.TypedFile;
@@ -75,7 +78,7 @@ public class MainActivity extends BaseMintsActivity {
             }
         });
 
-        final String fileName = "demo.gif";
+        final String fileName = "demo.jpg";
         btn_demo_upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,8 +86,14 @@ public class MainActivity extends BaseMintsActivity {
                 File file = new File(Environment.getExternalStorageDirectory() + "/" + fileName);
 
                 if (file.exists()) {
+                    String mimeType = "";
+                    try {
+                        mimeType = getMimeType("file://" + Environment.getExternalStorageDirectory() + "/" + fileName);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                     showWaitDialog().show();
-                    String mimeType = "image/gif";
                     TypedFile fileToSend = new TypedFile(mimeType, file);
 
                     mMeizituApi.upload(fileToSend, "Default.Upload", new UploadDataCallback(null));
@@ -100,7 +109,7 @@ public class MainActivity extends BaseMintsActivity {
             public void onClick(View v) {
                 showWaitDialog().show();
                 Request request = new Request.Builder()
-                        .url("http://flash2-http.qq.com/bz.gif")
+                        .url("http://www.sinaimg.cn/dy/slidenews/48_img/2015_03/33487_3983732_283301.jpg")
                         .build();
 
                 OkHttpUtils.getInstance(MainActivity.this).newCall(request).enqueue(new Callback() {
@@ -127,6 +136,18 @@ public class MainActivity extends BaseMintsActivity {
                 });
             }
         });
+    }
+
+
+    public String getMimeType(String fileUrl)
+            throws java.io.IOException
+    {
+        String type = null;
+        URL u = new URL(fileUrl);
+        URLConnection uc = null;
+        uc = u.openConnection();
+        type = uc.getContentType();
+        return type;
     }
 
     public byte[] getBytesFromStream(InputStream is) throws IOException {
