@@ -24,6 +24,12 @@ public class RetrofitUtils {
                     builder.setClient(new OkClient(OkHttpUtils.getInstance(context)));
                     builder.setLogLevel(
                             Config.DEBUG ? RestAdapter.LogLevel.FULL : RestAdapter.LogLevel.NONE);
+//                    builder.setRequestInterceptor(new RequestInterceptor() {
+//                        @Override
+//                        public void intercept(RequestFacade request) {
+//                            request.addHeader("Cache-Control", "public, max-age=900");
+//                        }
+//                    });
                     singletons.put(endPoint, builder.build());
                 }
             }

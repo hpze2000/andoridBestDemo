@@ -3,13 +3,17 @@ package com.demo.nd.test.base;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.demo.nd.test.R;
 import com.demo.nd.test.base.lifecycle.IComponentContainer;
 import com.demo.nd.test.base.lifecycle.LifeCycleComponent;
 import com.demo.nd.test.base.lifecycle.LifeCycleComponentManager;
+import com.demo.nd.test.ui.dialog.DialogControl;
+import com.demo.nd.test.ui.dialog.WaitDialog;
 import com.demo.nd.test.utils.LogUtils;
 import com.demo.nd.test.utils.RetrofitUtils;
 
@@ -203,6 +207,36 @@ public abstract class BaseFragment extends Fragment implements IBaseFragment, IC
     private void showStatus(String status) {
         final String[] className = ((Object) this).getClass().getName().split("\\.");
         LogUtils.log("lifecycle", className[className.length - 1] + " " + status);
+    }
+
+
+    protected void hideWaitDialog() {
+        FragmentActivity activity = getActivity();
+        if (activity instanceof DialogControl) {
+            ((DialogControl) activity).hideWaitDialog();
+        }
+    }
+
+    protected WaitDialog showWaitDialog() {
+        return showWaitDialog(R.string.loading);
+    }
+
+    protected WaitDialog showWaitDialog(int resid) {
+        FragmentActivity activity = getActivity();
+        if (activity instanceof DialogControl) {
+
+            System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Yes");
+            return ((DialogControl) activity).showWaitDialog(resid);
+        }
+        return null;
+    }
+
+    protected WaitDialog showWaitDialog(String str) {
+        FragmentActivity activity = getActivity();
+        if (activity instanceof DialogControl) {
+            return ((DialogControl) activity).showWaitDialog(str);
+        }
+        return null;
     }
 }
 

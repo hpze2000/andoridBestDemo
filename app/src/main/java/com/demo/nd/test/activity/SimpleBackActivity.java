@@ -31,7 +31,7 @@ public class SimpleBackActivity extends BaseActivity {
         setContentView(R.layout.activity_simple_fragment);
 
         mActionBar = getSupportActionBar();
-        mActionBar.setDisplayShowHomeEnabled(false);
+
         mInflater = getLayoutInflater();
         initActionBar(mActionBar);
 
@@ -67,6 +67,7 @@ public class SimpleBackActivity extends BaseActivity {
             return;
 
         actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+
         int layoutRes = getActionBarCustomView();
         View view = inflateView(layoutRes == 0 ? R.layout.actionbar_custom_backtitle
                 : layoutRes);
@@ -111,7 +112,7 @@ public class SimpleBackActivity extends BaseActivity {
         if (mTvActionTitle != null) {
             mTvActionTitle.setText(title);
         }
-        mActionBar.setTitle(title);
+        mActionBar.setTitle("");
     }
 
     @Override

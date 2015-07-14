@@ -56,7 +56,7 @@ public class CnodejsPageFragment extends BaseFragment {
         swiperefreshlayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                swiperefreshlayout.setRefreshing(false);
+            swiperefreshlayout.setRefreshing(false);
             }
         });
 
@@ -142,7 +142,7 @@ public class CnodejsPageFragment extends BaseFragment {
 
         @Override
         public void failure(RetrofitError error) {
-//            mEmptyLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
+            mEmptyLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
         }
     }
 

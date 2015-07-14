@@ -7,6 +7,8 @@ import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.OkHttpClient;
 
 import java.io.File;
+import java.net.CookieManager;
+import java.net.CookiePolicy;
 import java.util.concurrent.TimeUnit;
 
 
@@ -24,6 +26,11 @@ public class OkHttpUtils {
                     singleton.setCache(new Cache(cacheDir, Config.RESPONSE_CACHE_SIZE));
                     singleton.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT, TimeUnit.MILLISECONDS);
                     singleton.setReadTimeout(Config.HTTP_READ_TIMEOUT, TimeUnit.MILLISECONDS);
+                    CookieManager cookieManager = new CookieManager();
+                    cookieManager.setCookiePolicy(CookiePolicy.ACCEPT_ALL);
+                    singleton.setCookieHandler(cookieManager);
+//                    Cache cache = new Cache(new File("com.demo.nd.test"), 10 * 1024 * 1024);
+//                    singleton.setCache(cache);
                 }
             }
         }

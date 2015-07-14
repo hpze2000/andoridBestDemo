@@ -6,26 +6,31 @@
     android:padding="10dp">
 
 
-    <com.liangfeizc.flowlayout.FlowLayout
+    <org.apmem.tools.layouts.FlowLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-
+        android:layout_height="wrap_content"
+        >
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/space_5"
             android:text="列表示例 (带上拉刷新，下拉刷新)"
             android:id="@+id/btn_demo_list"
-            android:background="#ffff773e" />
+            android:background="#ffff773e"
+            android:layout_marginTop="@dimen/space_5"
+            android:layout_marginRight="@dimen/space_5"
+            />
 
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/space_5"
-            android:text="图片瀑布流"
+            android:text="图片瀑布流（图片加载/缓存组件的使用）"
             android:id="@+id/btn_demo_meizitu_list"
-            android:background="#ffff0abe" />
+            android:background="#ffff0abe"
+            android:layout_marginTop="@dimen/space_5"
+            android:layout_marginRight="@dimen/space_5"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -33,7 +38,9 @@
             android:padding="@dimen/space_5"
             android:text="登录演示"
             android:id="@+id/btn_demo_login"
-            android:background="#ff1b89ff" />
+            android:background="#ff1b89ff"
+            android:layout_marginTop="@dimen/space_5"
+            android:layout_marginRight="@dimen/space_5"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -41,7 +48,9 @@
             android:padding="@dimen/space_5"
             android:text="上传文件演示"
             android:id="@+id/btn_demo_upload"
-            android:background="#ffffbd09" />
+            android:background="#ffffbd09"
+            android:layout_marginTop="@dimen/space_5"
+            android:layout_marginRight="@dimen/space_5"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -49,8 +58,9 @@
             android:padding="@dimen/space_5"
             android:text="下载文件演示"
             android:id="@+id/btn_demo_download"
-            android:background="#ffa400ff" />
-
-    </com.liangfeizc.flowlayout.FlowLayout>
+            android:background="#ffa400ff"
+            android:layout_marginTop="@dimen/space_5"
+            android:layout_marginRight="@dimen/space_5"/>
+    </org.apmem.tools.layouts.FlowLayout>
 
 </LinearLayout>

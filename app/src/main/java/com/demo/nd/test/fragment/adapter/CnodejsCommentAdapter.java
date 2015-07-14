@@ -9,7 +9,6 @@ import android.widget.TextView;
 import com.demo.nd.test.R;
 import com.demo.nd.test.base.BaseListAdapter;
 import com.demo.nd.test.bean.CnodejsTopicBean;
-import com.demo.nd.test.bean.CnodejsTopicsBean;
 import com.demo.nd.test.utils.LogUtils;
 import com.demo.nd.test.utils.StringUtils;
 import com.squareup.picasso.Picasso;
@@ -39,7 +38,7 @@ public class CnodejsCommentAdapter extends BaseListAdapter<CnodejsTopicBean.Data
 
         String content = data.getContent();
         if (!TextUtils.isEmpty(content)) {
-            vh.tv_content.setText(StringUtils.substring(StringUtils.Html2Text(content), 200, "utf-8"));
+            vh.tv_content.setText((StringUtils.Html2Text(content)));
         }
         vh.tv_name.setText(data.getAuthor().getLoginname());
         String dateFormat = StringUtils.formatTZTime(data.getCreate_at());

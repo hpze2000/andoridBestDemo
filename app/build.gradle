@@ -54,7 +54,8 @@ dependencies {
     compile 'com.joanzapata.android:android-iconify:1.0.9'
     compile 'com.etsy.android.grid:library:1.0.5'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
-    compile 'com.liangfeizc:flowlayout:1.0.0@aar'
+    compile 'org.apmem.tools:layouts:1.9@aar'
+//    compile 'com.liangfeizc:flowlayout:1.0.0@aar'
 //    compile 'com.yalantis:contextmenu:1.0.4'
 
 //    apt "org.androidannotations:androidannotations:$AAVersion"

@@ -2,47 +2,37 @@ package com.demo.nd.test.base;
 
 import android.os.Bundle;
 
+import com.demo.nd.test.R;
 import com.demo.nd.test.base.lifecycle.IComponentContainer;
 import com.demo.nd.test.base.lifecycle.LifeCycleComponent;
 import com.demo.nd.test.base.lifecycle.LifeCycleComponentManager;
+import com.demo.nd.test.ui.dialog.DialogControl;
+import com.demo.nd.test.ui.dialog.DialogHelper;
+import com.demo.nd.test.ui.dialog.WaitDialog;
 import com.demo.nd.test.utils.LogUtils;
+import com.demo.nd.test.utils.RetrofitUtils;
+
+import retrofit.Callback;
 
 
 /**
  * Created by Administrator on 2015/7/9.
  */
-public abstract class BaseActivity extends BaseFragmentActivity implements IComponentContainer {
+public abstract class BaseActivity extends BaseFragmentActivity implements DialogControl, IComponentContainer {
 
-//    public <T> T createApi(Class<T> cls, String endPoint) {
-//        return RetrofitUtils.createApi(this, cls, endPoint);
-//    }
-//
-//    public abstract class ActivityCallback<T> implements Callback<T> {
-//        private final WeakReference<BaseActivity> mRef;
-//        protected final Object mobj;
-//
-//        public ActivityCallback(BaseActivity activity, Object obj) {
-//            mRef = new WeakReference<>(activity);
-//            mobj = obj;
-//        }
-//
-//        public Activity getActivity() {
-//            return mRef.get();
-//        }
-//
-//        @Override
-//        public void failure(RetrofitError error) {
-//            final BaseActivity activity = mRef.get();
-//
-//            Response response = error.getResponse();
-//            if (response != null) {
-//                LogUtils.log("code:" + response.getStatus() + ", reason:" + response.getReason());
-//                error.printStackTrace();
-//            }
-//        }
-//    }
+    public <T> T createApi(Class<T> cls, String endPoint) {
+        return RetrofitUtils.createApi(this, cls, endPoint);
+    }
 
+    public abstract class ActivityCallback<T> implements Callback<T> {
+        protected final Object mObject;
 
+        public ActivityCallback(Object obj) {
+            mObject = obj;
+        }
+    }
+
+    private WaitDialog _waitDialog;
 
 
     private LifeCycleComponentManager mComponentContainer = new LifeCycleComponentManager();
@@ -110,5 +100,40 @@ public abstract class BaseActivity extends BaseFragmentActivity implements IComp
     private void showStatus(String status) {
         final String[] className = ((Object) this).getClass().getName().split("\\.");
         LogUtils.log("lifecycle", String.format("%s %s", className[className.length - 1], status));
+    }
+
+
+    @Override
+    public WaitDialog showWaitDialog() {
+        return showWaitDialog(R.string.loading);
+    }
+
+    @Override
+    public WaitDialog showWaitDialog(int resid) {
+        return showWaitDialog(getString(resid));
+    }
+
+    @Override
+    public WaitDialog showWaitDialog(String message) {
+        if (_waitDialog == null) {
+            _waitDialog = DialogHelper.getWaitDialog(this, message);
+        }
+        if (_waitDialog != null) {
+            _waitDialog.setMessage(message);
+            _waitDialog.show();
+        }
+        return _waitDialog;
+    }
+
+    @Override
+    public void hideWaitDialog() {
+        if (_waitDialog != null) {
+            try {
+                _waitDialog.dismiss();
+                _waitDialog = null;
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }
