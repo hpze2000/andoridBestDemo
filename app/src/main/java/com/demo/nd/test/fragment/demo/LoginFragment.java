@@ -43,6 +43,14 @@ public class LoginFragment extends BaseFragment {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String uname = username.getText().toString();
+                String psw = password.getText().toString();
+
+                if (TextUtils.isEmpty(uname) || TextUtils.isEmpty(psw)) {
+                    BaseApplication.showToast("输入用户名和密码");
+                    return;
+                }
+
                 showWaitDialog().show();
                 mMeizituApi.login(username.getText().toString(), password.getText().toString(), "Default.Login", new LoginDataCallback(null));
             }

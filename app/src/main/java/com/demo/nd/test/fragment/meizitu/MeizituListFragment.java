@@ -87,6 +87,7 @@ public class MeizituListFragment extends BaseFragment {
 
         mMeizituApi = createApi(MeizituApi.class, "http://api.meitu.tv");
 
+        mGridView.setAdapter(mMeizituListAdapter);
 
         ptrFrame.setLoadingMinTime(1000);
         ptrFrame.setPtrHandler(new PtrHandler() {
@@ -123,7 +124,7 @@ public class MeizituListFragment extends BaseFragment {
             G_currentPage = 1;
         }
 
-        mMeizituApi.list(G_currentPage, 20, "Default.Index", new DataCallback(isFirstPage));
+        mMeizituApi.list(G_currentPage, 20, 2, "Default.Index", new DataCallback(isFirstPage));
 
         G_currentPage++;
     }
@@ -141,7 +142,6 @@ public class MeizituListFragment extends BaseFragment {
             if (isFirstPage) {
                 mMeizituListAdapter.clear();
                 mMeizituListAdapter.addData(requestBean.getData().getList());
-                mGridView.setAdapter(mMeizituListAdapter);
             } else {
                 mMeizituListAdapter.addData(requestBean.getData().getList());
                 mMeizituListAdapter.notifyDataSetChanged();

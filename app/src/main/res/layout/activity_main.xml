@@ -36,6 +36,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/space_5"
+            android:text="图片流 2"
+            android:id="@+id/btn_demo_meizitu_list_2"
+            android:background="#ffff2c0e"
+            android:layout_marginTop="@dimen/space_5"
+            android:layout_marginRight="@dimen/space_5"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_5"
             android:text="登录演示"
             android:id="@+id/btn_demo_login"
             android:background="#ff1b89ff"

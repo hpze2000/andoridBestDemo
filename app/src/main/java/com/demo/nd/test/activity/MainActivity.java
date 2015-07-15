@@ -23,7 +23,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -33,7 +32,7 @@ import retrofit.mime.TypedFile;
 
 public class MainActivity extends BaseMintsActivity {
 
-    Button btnCnodejsList, btnMeizituList, btn_demo_login, btn_demo_download, btn_demo_upload;
+    Button btnCnodejsList, btnMeizituList, btn_demo_meizitu_list_2, btn_demo_login, btn_demo_download, btn_demo_upload;
     MeizituApi mMeizituApi;
 
     @Override
@@ -44,6 +43,7 @@ public class MainActivity extends BaseMintsActivity {
         mMeizituApi = createApi(MeizituApi.class, "http://api.meitu.tv");
         btnCnodejsList = (Button) findViewById(R.id.btn_demo_list);
         btnMeizituList = (Button) findViewById(R.id.btn_demo_meizitu_list);
+        btn_demo_meizitu_list_2 = (Button) findViewById(R.id.btn_demo_meizitu_list_2);
         btn_demo_login = (Button) findViewById(R.id.btn_demo_login);
         btn_demo_download = (Button) findViewById(R.id.btn_demo_download);
         btn_demo_upload = (Button) findViewById(R.id.btn_demo_upload);
@@ -59,6 +59,16 @@ public class MainActivity extends BaseMintsActivity {
         });
 
         btnMeizituList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SimpleBackActivity.class);
+                intent.putExtra(SimpleBackActivity.BUNDLE_KEY_PAGE, "com.demo.nd.test.fragment.meizitu.MeizituListBGAFragment");
+                intent.putExtra(SimpleBackActivity.BUNDLE_KEY_TITLE, "meitu.tv API");
+                startActivity(intent);
+            }
+        });
+
+        btn_demo_meizitu_list_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SimpleBackActivity.class);

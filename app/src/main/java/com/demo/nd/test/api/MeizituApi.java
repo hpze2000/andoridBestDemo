@@ -17,7 +17,7 @@ import retrofit.mime.TypedFile;
 public interface MeizituApi {
 
     @GET("/Public/meizitu")
-    void list(@Query("pageNum") int pageNum, @Query("pageSize") int pageSize, @Query("service") String service,
+    void list(@Query("pageNum") int pageNum, @Query("pageSize") int pageSize, @Query("menuId") int menuId, @Query("service") String service,
                 Callback<MeizituListBean> cb);
 
 
@@ -33,7 +33,7 @@ public interface MeizituApi {
     void needLoginUrl(@Query("service") String service, Callback<MeizituBaseBean> cb);
 
     @Multipart
-    @POST("/Public/meizitu")
+    @POST("/MeiziTu/upload.php")
     void upload(@Part("file") TypedFile file, @Query("service") String service, Callback<MeizituBaseBean> cb);
 
 }

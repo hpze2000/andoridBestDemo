@@ -42,21 +42,27 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.android.support:support-v4:22.2.0'
-    compile 'com.squareup.retrofit:retrofit:1.9.0'
-    compile 'com.squareup.okhttp:okhttp:2.4.0'
-    compile 'com.squareup.picasso:picasso:2.5.2'
-//    compile 'com.orhanobut:logger:1.10'
-    compile 'de.greenrobot:eventbus:2.4.0'
-//    compile 'com.github.navasmdc:MaterialDesign:1.5@aar'
-//    compile 'com.afollestad:material-dialogs:0.7.6.0'
-    compile 'com.github.rey5137:material:1.1.1'
-    compile 'in.srain.cube:ultra-ptr:1.0.10'
-    compile 'com.joanzapata.android:android-iconify:1.0.9'
-    compile 'com.etsy.android.grid:library:1.0.5'
-    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
-    compile 'org.apmem.tools:layouts:1.9@aar'
+    compile 'com.android.support:recyclerview-v7:22.2.0' //最新版RecyclerView。新版RecyclerView的addOnScrollListener比旧版的setOnScrollListener的扩展性更强
+
+    compile 'com.nineoldandroids:library:2.4.0' // 动画相关库 https://github.com/JakeWharton/NineOldAndroids
+    compile 'com.squareup.retrofit:retrofit:1.9.0' // Retrofit 把REST API返回的数据转化为Java对象方便操作。同时还封装了网络代码的调用 http://square.github.io/retrofit/
+    compile 'com.squareup.okhttp:okhttp:2.4.0'  // 很棒HTTP客户端 与Retrofit配合使用 http://square.github.io/okhttp/
+    compile 'com.squareup.picasso:picasso:2.5.2' // 一个强大的图片下载和缓存库 与上面两个同一公司的作品，但是貌似还是下面这个库比较好用，都可以选择 http://square.github.io/picasso/
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4' //（推荐）另一个 一个强大的图片下载和缓存库 很强大。 https://github.com/nostra13/Android-Universal-Image-Loader
+    compile 'de.greenrobot:eventbus:2.4.0' // 一个小型的 针对Android优化的发布/订阅事件总线 https://github.com/greenrobot/EventBus
+    compile 'in.srain.cube:ultra-ptr:1.0.10' //很强大的下拉 上拉刷新组件 国人作品 https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh
+    compile 'cn.bingoogolapple:bga-refreshlayout:1.0.5@aar' //另外一个 很强大的下拉 上拉刷新组件 也是 国人作品，可根据自己喜好选择使用 https://github.com/bingoogolapple/BGARefreshLayout-Android
+    compile 'cn.bingoogolapple:bga-adapter:1.0.3@aar' //配合 上面下拉刷新的 adapter https://github.com/bingoogolapple/BGAAdapter-Android
+    compile 'com.joanzapata.android:android-iconify:1.0.9' // 实现了在 Android 上集成 FontAwesome 图标字体 http://joanzapata.com/android-iconify
+    compile 'com.etsy.android.grid:library:1.0.5' // android瀑布流控件 https://github.com/etsy/AndroidStaggeredGrid
+    compile 'org.apmem.tools:layouts:1.9@aar' // 自动换行的线性布局 https://github.com/ApmeM/android-flowlayout
+
+//    compile 'com.github.rey5137:material:1.1.1'
 //    compile 'com.liangfeizc:flowlayout:1.0.0@aar'
 //    compile 'com.yalantis:contextmenu:1.0.4'
+//    compile 'com.orhanobut:logger:1.10'
+//    compile 'com.github.navasmdc:MaterialDesign:1.5@aar'
+//    compile 'com.afollestad:material-dialogs:0.7.6.0'
 
 //    apt "org.androidannotations:androidannotations:$AAVersion"
 //    compile "org.androidannotations:androidannotations-api:$AAVersion"
