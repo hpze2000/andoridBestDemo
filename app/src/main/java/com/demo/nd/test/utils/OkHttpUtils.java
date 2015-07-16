@@ -28,8 +28,6 @@ public class OkHttpUtils {
                     CookieManager cookieManager = new CookieManager();
                     cookieManager.setCookiePolicy(CookiePolicy.ACCEPT_ALL);
                     singleton.setCookieHandler(cookieManager);
-                    File httpCacheDirectory = new File(context.getCacheDir(), "responses");
-                    singleton.setCache(new Cache(httpCacheDirectory, 10 * 1024 * 1024));
                 }
             }
         }
