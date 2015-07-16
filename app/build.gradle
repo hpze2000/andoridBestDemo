@@ -13,6 +13,7 @@ buildscript {
 repositories {
     mavenCentral()
     mavenLocal()
+    jcenter()
 }
 
 apply plugin: 'com.android.application'
@@ -56,7 +57,9 @@ dependencies {
     compile 'com.joanzapata.android:android-iconify:1.0.9' // 实现了在 Android 上集成 FontAwesome 图标字体 http://joanzapata.com/android-iconify
     compile 'com.etsy.android.grid:library:1.0.5' // android瀑布流控件 https://github.com/etsy/AndroidStaggeredGrid
     compile 'org.apmem.tools:layouts:1.9@aar' // 自动换行的线性布局 https://github.com/ApmeM/android-flowlayout
+    compile 'ru.bartwell:exfilepicker:1.8' //文件/目录 选择器 https://github.com/bartwell/ExFilePicker
 
+//    compile 'com.jakewharton:disklrucache:2.0.2' //文件磁盘缓存 https://github.com/JakeWharton/DiskLruCache
 //    compile 'com.github.rey5137:material:1.1.1'
 //    compile 'com.liangfeizc:flowlayout:1.0.0@aar'
 //    compile 'com.yalantis:contextmenu:1.0.4'

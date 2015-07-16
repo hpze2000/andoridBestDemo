@@ -13,7 +13,6 @@ import java.util.concurrent.TimeUnit;
 
 
 public class OkHttpUtils {
-
     private static OkHttpClient singleton;
 
     public static OkHttpClient getInstance(Context context) {
@@ -29,8 +28,8 @@ public class OkHttpUtils {
                     CookieManager cookieManager = new CookieManager();
                     cookieManager.setCookiePolicy(CookiePolicy.ACCEPT_ALL);
                     singleton.setCookieHandler(cookieManager);
-//                    Cache cache = new Cache(new File("com.demo.nd.test"), 10 * 1024 * 1024);
-//                    singleton.setCache(cache);
+                    File httpCacheDirectory = new File(context.getCacheDir(), "responses");
+                    singleton.setCache(new Cache(httpCacheDirectory, 10 * 1024 * 1024));
                 }
             }
         }

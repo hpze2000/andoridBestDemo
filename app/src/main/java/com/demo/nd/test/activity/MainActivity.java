@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -28,12 +29,14 @@ import java.net.URLConnection;
 
 import retrofit.RetrofitError;
 import retrofit.mime.TypedFile;
+import ru.bartwell.exfilepicker.ExFilePickerParcelObject;
 
 
 public class MainActivity extends BaseMintsActivity {
 
     Button btnCnodejsList, btnMeizituList, btn_demo_meizitu_list_2, btn_demo_login, btn_demo_download, btn_demo_upload;
     MeizituApi mMeizituApi;
+    private static final int EX_FILE_PICKER_RESULT = 0;
 
     @Override
     protected void onCreate(Bundle bundle) {
@@ -73,7 +76,7 @@ public class MainActivity extends BaseMintsActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SimpleBackActivity.class);
                 intent.putExtra(SimpleBackActivity.BUNDLE_KEY_PAGE, "com.demo.nd.test.fragment.meizitu.MeizituListFragment");
-                intent.putExtra(SimpleBackActivity.BUNDLE_KEY_TITLE, "meitu.tv API");
+                intent.putExtra(SimpleBackActivity.BUNDLE_KEY_TITLE, "meitu.tv API 2");
                 startActivity(intent);
             }
         });
@@ -92,24 +95,9 @@ public class MainActivity extends BaseMintsActivity {
         btn_demo_upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                File file = new File(Environment.getExternalStorageDirectory() + "/" + fileName);
-
-                if (file.exists()) {
-                    String mimeType = "";
-                    try {
-                        mimeType = getMimeType("file://" + Environment.getExternalStorageDirectory() + "/" + fileName);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                    showWaitDialog().show();
-                    TypedFile fileToSend = new TypedFile(mimeType, file);
-
-                    mMeizituApi.upload(fileToSend, "Default.Upload", new UploadDataCallback(null));
-                } else {
-                    Toast.makeText(MainActivity.this, "没有对应文件， 请先点击下载测试", Toast.LENGTH_LONG).show();
-                }
+                Intent intent = new Intent(getApplicationContext(), ru.bartwell.exfilepicker.ExFilePickerActivity.class);
+                intent.putExtra("EnableCancelButton", true);
+                startActivityForResult(intent, EX_FILE_PICKER_RESULT);
             }
         });
 
@@ -221,4 +209,43 @@ public class MainActivity extends BaseMintsActivity {
         }
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == EX_FILE_PICKER_RESULT) {
+            if (data != null) {
+                ExFilePickerParcelObject object = data.getParcelableExtra(ExFilePickerParcelObject.class.getCanonicalName());
+                if (object.count > 0) {
+//                    Toast.makeText(MainActivity.this, object.path + object.names.get(0), Toast.LENGTH_LONG).show();
+
+                    String selectFileName = object.path + object.names.get(0);
+                    File file = new File(selectFileName);
+                    if (file.exists()) {
+                        if (file.length() > 1024 * 1024 * 10) {
+                            Toast.makeText(MainActivity.this, "文件大小过大：" + file.length(), Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        String mimeType = "";
+                        try {
+                            mimeType = getMimeType("file://" + selectFileName);
+                        } catch (IOException e) {
+//                            e.printStackTrace();
+                        }
+
+                        if (TextUtils.isEmpty(mimeType)) {
+                            Toast.makeText(MainActivity.this, "类型读取错误", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        TypedFile fileToSend = new TypedFile(mimeType, file);
+                        showWaitDialog().show();
+
+                        mMeizituApi.upload(fileToSend, "Default.Upload", new UploadDataCallback(null));
+                    } else {
+                        Toast.makeText(MainActivity.this, "文件不存在", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        }
+    }
 }
