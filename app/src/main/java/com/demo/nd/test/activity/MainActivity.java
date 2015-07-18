@@ -34,7 +34,7 @@ import ru.bartwell.exfilepicker.ExFilePickerParcelObject;
 
 public class MainActivity extends BaseMintsActivity {
 
-    Button btnCnodejsList, btnMeizituList, btn_demo_meizitu_list_2, btn_demo_login, btn_demo_download, btn_demo_upload;
+    Button btnCnodejsList, btnMeizituList, btn_demo_meizitu_list_2, btn_demo_login, btn_demo_download, btn_demo_upload, btn_demo_vedio, btn_demo_gif;
     MeizituApi mMeizituApi;
     private static final int EX_FILE_PICKER_RESULT = 0;
 
@@ -50,6 +50,8 @@ public class MainActivity extends BaseMintsActivity {
         btn_demo_login = (Button) findViewById(R.id.btn_demo_login);
         btn_demo_download = (Button) findViewById(R.id.btn_demo_download);
         btn_demo_upload = (Button) findViewById(R.id.btn_demo_upload);
+        btn_demo_vedio = (Button) findViewById(R.id.btn_demo_vedio);
+        btn_demo_gif = (Button) findViewById(R.id.btn_demo_gif);
 
         btnCnodejsList.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,6 +134,26 @@ public class MainActivity extends BaseMintsActivity {
                         Looper.loop();
                     }
                 });
+            }
+        });
+
+        btn_demo_vedio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SimpleBackActivity.class);
+                intent.putExtra(SimpleBackActivity.BUNDLE_KEY_PAGE, "com.demo.nd.test.fragment.demo.VideoFragment");
+                intent.putExtra(SimpleBackActivity.BUNDLE_KEY_TITLE, "视频播放");
+                startActivity(intent);
+            }
+        });
+
+        btn_demo_gif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SimpleBackActivity.class);
+                intent.putExtra(SimpleBackActivity.BUNDLE_KEY_PAGE, "com.demo.nd.test.fragment.demo.GifFragment");
+                intent.putExtra(SimpleBackActivity.BUNDLE_KEY_TITLE, "GIF动图播放");
+                startActivity(intent);
             }
         });
     }

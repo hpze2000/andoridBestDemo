@@ -71,6 +71,26 @@
             android:background="#ffa400ff"
             android:layout_marginTop="@dimen/space_5"
             android:layout_marginRight="@dimen/space_5"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_5"
+            android:text="网络视频播放演示"
+            android:id="@+id/btn_demo_vedio"
+            android:background="#ffff0d39"
+            android:layout_marginTop="@dimen/space_5"
+            android:layout_marginRight="@dimen/space_5"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_5"
+            android:text="GIF 动图播放"
+            android:id="@+id/btn_demo_gif"
+            android:background="#ff3e100a"
+            android:layout_marginTop="@dimen/space_5"
+            android:layout_marginRight="@dimen/space_5"/>
     </org.apmem.tools.layouts.FlowLayout>
 
 </LinearLayout>
