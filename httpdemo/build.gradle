@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "com.demo.test.nd.httpdemo"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:22.2.0'
+
+    compile 'com.squareup.retrofit:retrofit:1.9.0' // Retrofit 把REST API返回的数据转化为Java对象方便操作。同时还封装了网络代码的调用 http://square.github.io/retrofit/
+    compile 'com.squareup.okhttp:okhttp:2.4.0'  // 很棒HTTP客户端 与Retrofit配合使用 http://square.github.io/okhttp/
+
+
+}
