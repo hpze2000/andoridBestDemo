@@ -1,4 +1,4 @@
-package com.demo.test.nd.httpdemo;
+package com.demo.test.nd.httpdemo.utils;
 
 import android.content.Context;
 
@@ -8,6 +8,9 @@ import retrofit.RestAdapter;
 import retrofit.client.OkClient;
 import retrofit.converter.GsonConverter;
 
+/**
+ * Created by johnson on 2015/7/22.
+ */
 public class RetrofitUtils {
 
     private static HashMap<String, RestAdapter> singletons = new HashMap();
@@ -17,28 +20,21 @@ public class RetrofitUtils {
             synchronized (RetrofitUtils.class) {
                 if (singletons.get(endPoint) == null) {
                     RestAdapter.Builder builder = new RestAdapter.Builder();
+                    //请求的网址
                     builder.setEndpoint(endPoint);
+                    //请求回来的数据，用什么来处理，gson
                     builder.setConverter(new GsonConverter(GsonUtils.newInstance()));
+                    //设置请求的客户端，OKHTTP
                     builder.setClient(new OkClient(OkHttpUtils.getInstance(context)));
+                    //设置日志的等级
                     builder.setLogLevel(
                             RestAdapter.LogLevel.FULL);
-//                    builder.setRequestInterceptor(new RequestInterceptor() {
-//                        @Override
-//                        public void intercept(RequestFacade request) {
-//                            if (DeviceUtils.hasInternet()) {
-//                                int maxAge = 60; // read from cache for 1 minute
-//                                request.addHeader("Cache-Control", "public, max-age=" + maxAge);
-//                            } else {
-//                                int maxStale = 60 * 60 * 24 * 28; // tolerate 4-weeks stale
-//                                request.addHeader("Cache-Control",
-//                                        "public, only-if-cached, max-stale=" + maxStale);
-//                            }
-//                        }
-//                    });
+
                     singletons.put(endPoint, builder.build());
                 }
             }
         }
         return singletons.get(endPoint).create(clazz);
     }
+
 }
